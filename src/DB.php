@@ -9,6 +9,8 @@
 
 namespace AshleyFae\Migrations;
 
+use AshleyFae\Migrations\Exceptions\DatabaseQueryException;
+
 /**
  * Static wrapper for `\wpdb`.
  * Taken from GiveWP.

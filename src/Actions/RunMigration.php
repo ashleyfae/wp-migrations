@@ -11,7 +11,7 @@ namespace AshleyFae\Migrations\Actions;
 
 use AshleyFae\Migrations\Contracts\Migration;
 use AshleyFae\Migrations\MigrationRepository;
-use AshleyFae\Migrations\ModelNotFoundException;
+use AshleyFae\Migrations\Exceptions\ModelNotFoundException;
 
 class RunMigration
 {
@@ -33,7 +33,7 @@ class RunMigration
     }
 
     /**
-     * @throws ModelNotFoundException|\Exception
+     * @throws \AshleyFae\Migrations\Exceptions\ModelNotFoundException|\Exception
      */
     public function execute(): void
     {

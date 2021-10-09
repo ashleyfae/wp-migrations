@@ -11,7 +11,7 @@ namespace AshleyFae\Migrations\Commands;
 
 use AshleyFae\Migrations\Actions\RunMigration;
 use AshleyFae\Migrations\Contracts\Migration;
-use AshleyFae\Migrations\ModelNotFoundException;
+use AshleyFae\Migrations\Exceptions\ModelNotFoundException;
 
 class Migrate extends Command
 {

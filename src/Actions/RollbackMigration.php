@@ -11,7 +11,7 @@ namespace AshleyFae\Migrations\Actions;
 
 use AshleyFae\Migrations\Contracts\Migration;
 use AshleyFae\Migrations\MigrationRepository;
-use AshleyFae\Migrations\ModelNotFoundException;
+use AshleyFae\Migrations\Exceptions\ModelNotFoundException;
 
 class RollbackMigration
 {

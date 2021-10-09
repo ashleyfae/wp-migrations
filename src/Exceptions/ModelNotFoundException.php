@@ -7,7 +7,7 @@
  * @license   GPL2+
  */
 
-namespace AshleyFae\Migrations;
+namespace AshleyFae\Migrations\Exceptions;
 
 class ModelNotFoundException extends \Exception
 {

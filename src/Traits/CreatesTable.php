@@ -9,15 +9,15 @@
 
 namespace AshleyFae\Migrations\Traits;
 
-use AshleyFae\Migrations\DatabaseMigrationException;
-use AshleyFae\Migrations\DatabaseQueryException;
+use AshleyFae\Migrations\Exceptions\DatabaseMigrationException;
+use AshleyFae\Migrations\Exceptions\DatabaseQueryException;
 use AshleyFae\Migrations\DB;
 
 trait CreatesTable
 {
 
     /**
-     * @throws DatabaseMigrationException
+     * @throws \AshleyFae\Migrations\Exceptions\DatabaseMigrationException
      */
     protected function createTable(string $table, string $schema): void
     {

@@ -10,7 +10,7 @@
 namespace AshleyFae\Migrations\Migrations;
 
 use AshleyFae\Migrations\Contracts\Migration;
-use AshleyFae\Migrations\DatabaseMigrationException;
+use AshleyFae\Migrations\Exceptions\DatabaseMigrationException;
 use AshleyFae\Migrations\MigrationRepository;
 use AshleyFae\Migrations\Traits\CreatesTable;
 
@@ -53,7 +53,7 @@ class CreateMigrationsTable implements Migration
     }
 
     /**
-     * @throws DatabaseMigrationException
+     * @throws \AshleyFae\Migrations\Exceptions\DatabaseMigrationException
      */
     public function down(): void
     {

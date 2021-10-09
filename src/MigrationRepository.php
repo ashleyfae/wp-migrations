@@ -9,6 +9,7 @@
 
 namespace AshleyFae\Migrations;
 
+use AshleyFae\Migrations\Exceptions\ModelNotFoundException;
 use AshleyFae\Migrations\Models\Migration;
 
 /**
