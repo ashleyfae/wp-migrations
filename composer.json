@@ -5,11 +5,18 @@
   "license": "GPL-3.0-or-later",
   "minimum-stability": "stable",
   "require": {
-    "php": ">=7.1"
+    "php": ">=7.1",
+    "ashleyfae/wp-application": "*"
   },
   "autoload": {
     "psr-4": {
       "AshleyFae\\Migrations\\": "src/"
     }
-  }
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/ashleyfae/wp-application"
+    }
+  ]
 }

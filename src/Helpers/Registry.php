@@ -16,14 +16,6 @@ class Registry
 
     private $items = [];
 
-    public function __construct()
-    {
-        $this->items[CreateMigrationsTable::id()] = [
-            'group' => 'af_migrations',
-            'class' => CreateMigrationsTable::class,
-        ];
-    }
-
     /**
      * @throws \Exception
      */

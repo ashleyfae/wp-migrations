@@ -9,6 +9,7 @@
 
 namespace AshleyFae\Migrations\Actions;
 
+use AshleyFae\App\App;
 use AshleyFae\Migrations\Contracts\Migration;
 use AshleyFae\Migrations\MigrationRepository;
 use AshleyFae\Migrations\Exceptions\ModelNotFoundException;
@@ -29,7 +30,7 @@ class RunMigration
     public function __construct(Migration $migration)
     {
         $this->migration           = $migration;
-        $this->migrationRepository = new MigrationRepository();
+        $this->migrationRepository = App::getInstance()->make(MigrationRepository::class);
     }
 
     /**
