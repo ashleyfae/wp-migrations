@@ -23,6 +23,11 @@ class CreateMigrationsTable implements Migration
         return 'create_migrations_table';
     }
 
+    public static function groupId(): string
+    {
+        return 'af_migrations';
+    }
+
     public static function title(): string
     {
         return 'Creates af_migrations table.';
@@ -40,7 +45,7 @@ class CreateMigrationsTable implements Migration
     {
         $sql = "
         id varchar(180) NOT NULL,
-        group varchar(180) DEFAULT NULL,
+        group_id varchar(180) DEFAULT NULL,
         status varchar(16) NOT NULL DEFAULT 'pending',
         error text DEFAULT NULL,
         last_run datetime NOT NULL,

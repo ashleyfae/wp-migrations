@@ -26,12 +26,12 @@ class Migration
     /**
      * @var string
      */
-    public $group = null;
+    public $group_id = null;
 
     /**
      * @var string
      */
-    public $status = 'pending';
+    public $status = self::STATUS_PENDING;
 
     /**
      * @var string|null
@@ -55,6 +55,14 @@ class Migration
     public function save(): void
     {
         (new MigrationRepository())->save($this);
+    }
+
+    public static function fromMigrationClass(\AshleyFae\Migrations\Contracts\Migration $migration)
+    {
+        return new self([
+            'id'       => $migration::id(),
+            'group_id' => $migration::groupId(),
+        ]);
     }
 
 }

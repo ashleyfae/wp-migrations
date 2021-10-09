@@ -39,7 +39,7 @@ class RunMigration
     {
         global $wpdb;
 
-        $migrationModel = $this->migrationRepository->getById($this->migration::id());
+        $migrationModel = \AshleyFae\Migrations\Models\Migration::fromMigrationClass($this->migration);
 
         $wpdb->query("START TRANSACTION");
 

@@ -20,6 +20,13 @@ interface Migration
     public static function id(): string;
 
     /**
+     * Group this migration belongs to.
+     *
+     * @return string
+     */
+    public static function groupId(): string;
+
+    /**
      * Returns a display-friendly title for this migragion.
      *
      * @return string
