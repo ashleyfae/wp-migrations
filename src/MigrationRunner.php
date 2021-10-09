@@ -9,6 +9,7 @@
 
 namespace AshleyFae\Migrations;
 
+use AshleyFae\Migrations\Actions\RunMigration;
 use AshleyFae\Migrations\Contracts\Migration;
 
 class MigrationRunner
