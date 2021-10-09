@@ -9,7 +9,7 @@
   },
   "autoload": {
     "psr-4": {
-      "AshleyFae\\Migrations": "src/"
+      "AshleyFae\\Migrations\\": "src/"
     }
   }
 }
