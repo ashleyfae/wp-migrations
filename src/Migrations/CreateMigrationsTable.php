@@ -50,8 +50,8 @@ class CreateMigrationsTable implements Migration
         error text DEFAULT NULL,
         last_run datetime NOT NULL,
         PRIMARY KEY (id),
-        INDEX status (status)
-        INDEX group (group)
+        INDEX status (status),
+        INDEX group_id (group_id)
         ";
 
         $this->createTable(MigrationRepository::tableName(), $sql);

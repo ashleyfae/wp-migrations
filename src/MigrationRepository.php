@@ -66,10 +66,10 @@ class MigrationRepository
     public function save(Migration $migration): void
     {
         $query = "
-        INSERT INTO {$this->tableName} (id, group, status, error, last_run)
+        INSERT INTO {$this->tableName} (id, group_id, status, error, last_run)
         values(%s, %s, %s, %s, NOW())
         ON DUPLICATE KEY UPDATE
-        group = %s,
+        group_id = %s,
         status = %s,
         error = %s,
         last_run = NOW()
@@ -79,10 +79,10 @@ class MigrationRepository
             DB::prepare(
                 $query,
                 $migration->id,
-                $migration->group,
+                $migration->group_id,
                 $migration->status,
                 $migration->error,
-                $migration->group,
+                $migration->group_id,
                 $migration->status,
                 $migration->error
             )
