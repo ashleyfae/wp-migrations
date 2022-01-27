@@ -7,10 +7,10 @@
  * @license   GPL2+
  */
 
-namespace AshleyFae\Migrations;
+namespace Ashleyfae\MigrationsWP;
 
-use AshleyFae\Migrations\Exceptions\ModelNotFoundException;
-use AshleyFae\Migrations\Models\Migration;
+use Ashleyfae\MigrationsWP\Exceptions\ModelNotFoundException;
+use Ashleyfae\MigrationsWP\Models\Migration;
 
 /**
  * @property string $tableName

@@ -7,10 +7,10 @@
  * @license   GPL2+
  */
 
-namespace AshleyFae\Migrations\Commands;
+namespace Ashleyfae\MigrationsWP\Commands;
 
-use AshleyFae\Migrations\MigrationRegistry;
-use AshleyFae\Migrations\MigrationRepository;
+use Ashleyfae\MigrationsWP\MigrationRegistry;
+use Ashleyfae\MigrationsWP\MigrationRepository;
 
 abstract class Command
 {

@@ -7,7 +7,7 @@
  * @license   GPL2+
  */
 
-namespace AshleyFae\Migrations\Exceptions;
+namespace Ashleyfae\MigrationsWP\Exceptions;
 
 class ModelNotFoundException extends \Exception
 {

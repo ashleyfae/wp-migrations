@@ -7,9 +7,9 @@
  * @license   GPL2+
  */
 
-namespace AshleyFae\Migrations\Models;
+namespace Ashleyfae\MigrationsWP\Models;
 
-use AshleyFae\Migrations\MigrationRepository;
+use Ashleyfae\MigrationsWP\MigrationRepository;
 
 class Migration
 {
@@ -67,7 +67,7 @@ class Migration
         (new MigrationRepository())->save($this);
     }
 
-    public static function fromMigrationClass(\AshleyFae\Migrations\Contracts\Migration $migration)
+    public static function fromMigrationClass(\Ashleyfae\MigrationsWP\Contracts\Migration $migration)
     {
         return new self([
             'id'       => $migration::id(),

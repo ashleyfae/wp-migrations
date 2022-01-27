@@ -7,17 +7,17 @@
  * @license   GPL2+
  */
 
-namespace AshleyFae\Migrations\Traits;
+namespace Ashleyfae\MigrationsWP\Traits;
 
-use AshleyFae\Migrations\Exceptions\DatabaseMigrationException;
-use AshleyFae\Migrations\Exceptions\DatabaseQueryException;
-use AshleyFae\Migrations\DB;
+use Ashleyfae\MigrationsWP\Exceptions\DatabaseMigrationException;
+use Ashleyfae\MigrationsWP\Exceptions\DatabaseQueryException;
+use Ashleyfae\MigrationsWP\DB;
 
 trait CreatesTable
 {
 
     /**
-     * @throws \AshleyFae\Migrations\Exceptions\DatabaseMigrationException
+     * @throws \Ashleyfae\MigrationsWP\Exceptions\DatabaseMigrationException
      */
     protected function createTable(string $table, string $schema): void
     {

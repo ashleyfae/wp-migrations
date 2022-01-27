@@ -7,10 +7,10 @@
  * @license   GPL2+
  */
 
-namespace AshleyFae\Migrations;
+namespace Ashleyfae\MigrationsWP;
 
-use AshleyFae\Migrations\Actions\RunMigration;
-use AshleyFae\Migrations\Contracts\Migration;
+use Ashleyfae\MigrationsWP\Actions\RunMigration;
+use Ashleyfae\MigrationsWP\Contracts\Migration;
 
 class MigrationRunner
 {

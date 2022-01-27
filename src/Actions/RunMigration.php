@@ -7,12 +7,12 @@
  * @license   GPL2+
  */
 
-namespace AshleyFae\Migrations\Actions;
+namespace Ashleyfae\MigrationsWP\Actions;
 
-use AshleyFae\AppWP\App;
-use AshleyFae\Migrations\Contracts\Migration;
-use AshleyFae\Migrations\MigrationRepository;
-use AshleyFae\Migrations\Exceptions\ModelNotFoundException;
+use Ashleyfae\AppWP\App;
+use Ashleyfae\MigrationsWP\Contracts\Migration;
+use Ashleyfae\MigrationsWP\MigrationRepository;
+use Ashleyfae\MigrationsWP\Exceptions\ModelNotFoundException;
 
 class RunMigration
 {
@@ -33,7 +33,7 @@ class RunMigration
     }
 
     /**
-     * @throws \AshleyFae\Migrations\Exceptions\ModelNotFoundException|\Exception
+     * @throws \Ashleyfae\MigrationsWP\Exceptions\ModelNotFoundException|\Exception
      */
     public function execute(Migration $migration): void
     {
@@ -41,18 +41,18 @@ class RunMigration
 
         global $wpdb;
 
-        $migrationModel = \AshleyFae\Migrations\Models\Migration::fromMigrationClass($this->migration);
+        $migrationModel = \Ashleyfae\MigrationsWP\Models\Migration::fromMigrationClass($this->migration);
 
         $wpdb->query("START TRANSACTION");
 
         try {
             $this->migration->up();
-            $migrationModel->status = \AshleyFae\Migrations\Models\Migration::STATUS_SUCCESS;
+            $migrationModel->status = \Ashleyfae\MigrationsWP\Models\Migration::STATUS_SUCCESS;
             $migrationModel->save();
             $wpdb->query("COMMIT");
         } catch (\Exception $e) {
             $wpdb->query("ROLLBACK");
-            $migrationModel->status = \AshleyFae\Migrations\Models\Migration::STATUS_FAILED;
+            $migrationModel->status = \Ashleyfae\MigrationsWP\Models\Migration::STATUS_FAILED;
             $migrationModel->error  = json_encode($e);
 
             trigger_error(sprintf(

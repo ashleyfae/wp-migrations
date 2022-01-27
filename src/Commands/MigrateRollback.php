@@ -7,13 +7,13 @@
  * @license   GPL2+
  */
 
-namespace AshleyFae\Migrations\Commands;
+namespace Ashleyfae\MigrationsWP\Commands;
 
-use AshleyFae\Migrations\Actions\RollbackMigration;
-use AshleyFae\Migrations\Contracts\Migration;
-use AshleyFae\Migrations\Exceptions\ModelNotFoundException;
-use AshleyFae\Migrations\MigrationRegistry;
-use AshleyFae\Migrations\MigrationRepository;
+use Ashleyfae\MigrationsWP\Actions\RollbackMigration;
+use Ashleyfae\MigrationsWP\Contracts\Migration;
+use Ashleyfae\MigrationsWP\Exceptions\ModelNotFoundException;
+use Ashleyfae\MigrationsWP\MigrationRegistry;
+use Ashleyfae\MigrationsWP\MigrationRepository;
 
 class MigrateRollback extends Command
 {
@@ -67,7 +67,7 @@ class MigrateRollback extends Command
         try {
             $migration = $this->migrationRepository->getById($migrationId);
 
-            return $migration->status === \AshleyFae\Migrations\Models\Migration::STATUS_SUCCESS;
+            return $migration->status === \Ashleyfae\MigrationsWP\Models\Migration::STATUS_SUCCESS;
         } catch (ModelNotFoundException $e) {
             return false;
         }

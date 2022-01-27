@@ -7,7 +7,7 @@
  * @license   GPL2+
  */
 
-namespace AshleyFae\Migrations\Contracts;
+namespace Ashleyfae\MigrationsWP\Contracts;
 
 interface Migration
 {

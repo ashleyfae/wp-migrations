@@ -7,11 +7,11 @@
  * @license   GPL2+
  */
 
-namespace AshleyFae\Migrations;
+namespace Ashleyfae\MigrationsWP;
 
 use Ashleyfae\AppWP\App;
-use AshleyFae\Migrations\Contracts\Migration;
-use AshleyFae\Migrations\Helpers\Registry;
+use Ashleyfae\MigrationsWP\Contracts\Migration;
+use Ashleyfae\MigrationsWP\Helpers\Registry;
 
 class MigrationRegistry extends Registry
 {

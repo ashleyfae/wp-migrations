@@ -7,9 +7,9 @@
  * @license   GPL2+
  */
 
-namespace AshleyFae\Migrations\Helpers;
+namespace Ashleyfae\MigrationsWP\Helpers;
 
-use AshleyFae\Migrations\Migrations\CreateMigrationsTable;
+use Ashleyfae\MigrationsWP\Migrations\CreateMigrationsTable;
 
 class Registry
 {

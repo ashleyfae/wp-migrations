@@ -7,11 +7,11 @@
  * @license   GPL2+
  */
 
-namespace AshleyFae\Migrations\Actions;
+namespace Ashleyfae\MigrationsWP\Actions;
 
-use AshleyFae\Migrations\Contracts\Migration;
-use AshleyFae\Migrations\MigrationRepository;
-use AshleyFae\Migrations\Exceptions\ModelNotFoundException;
+use Ashleyfae\MigrationsWP\Contracts\Migration;
+use Ashleyfae\MigrationsWP\MigrationRepository;
+use Ashleyfae\MigrationsWP\Exceptions\ModelNotFoundException;
 
 class RollbackMigration
 {

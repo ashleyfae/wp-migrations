@@ -7,12 +7,12 @@
  * @license   GPL2+
  */
 
-namespace AshleyFae\Migrations\Migrations;
+namespace Ashleyfae\MigrationsWP\Migrations;
 
-use AshleyFae\Migrations\Contracts\Migration;
-use AshleyFae\Migrations\Exceptions\DatabaseMigrationException;
-use AshleyFae\Migrations\MigrationRepository;
-use AshleyFae\Migrations\Traits\CreatesTable;
+use Ashleyfae\MigrationsWP\Contracts\Migration;
+use Ashleyfae\MigrationsWP\Exceptions\DatabaseMigrationException;
+use Ashleyfae\MigrationsWP\MigrationRepository;
+use Ashleyfae\MigrationsWP\Traits\CreatesTable;
 
 class CreateMigrationsTable implements Migration
 {
@@ -59,7 +59,7 @@ class CreateMigrationsTable implements Migration
     }
 
     /**
-     * @throws \AshleyFae\Migrations\Exceptions\DatabaseMigrationException
+     * @throws \Ashleyfae\MigrationsWP\Exceptions\DatabaseMigrationException
      */
     public function down(): void
     {

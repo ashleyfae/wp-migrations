@@ -7,17 +7,17 @@
  * @license   GPL2+
  */
 
-namespace AshleyFae\Migrations\ServiceProviders;
+namespace Ashleyfae\MigrationsWP\ServiceProviders;
 
-use AshleyFae\AppWP\App;
-use AshleyFae\AppWP\Helpers\Hooks;
-use AshleyFae\AppWP\ServiceProviders\ServiceProvider;
-use AshleyFae\Migrations\Commands\Command;
-use AshleyFae\Migrations\Commands\Migrate;
-use AshleyFae\Migrations\Commands\MigrateRollback;
-use AshleyFae\Migrations\MigrationRegistry;
-use AshleyFae\Migrations\MigrationRunner;
-use AshleyFae\Migrations\Migrations\CreateMigrationsTable;
+use Ashleyfae\AppWP\App;
+use Ashleyfae\AppWP\Helpers\Hooks;
+use Ashleyfae\AppWP\ServiceProviders\ServiceProvider;
+use Ashleyfae\MigrationsWP\Commands\Command;
+use Ashleyfae\MigrationsWP\Commands\Migrate;
+use Ashleyfae\MigrationsWP\Commands\MigrateRollback;
+use Ashleyfae\MigrationsWP\MigrationRegistry;
+use Ashleyfae\MigrationsWP\MigrationRunner;
+use Ashleyfae\MigrationsWP\Migrations\CreateMigrationsTable;
 
 class MigrationServiceProvider implements ServiceProvider
 {

@@ -7,9 +7,9 @@
  * @license   GPL2+
  */
 
-namespace AshleyFae\Migrations;
+namespace Ashleyfae\MigrationsWP;
 
-use AshleyFae\Migrations\Exceptions\DatabaseQueryException;
+use Ashleyfae\MigrationsWP\Exceptions\DatabaseQueryException;
 
 /**
  * Static wrapper for `\wpdb`.

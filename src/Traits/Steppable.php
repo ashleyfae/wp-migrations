@@ -8,7 +8,7 @@
  * @since     1.0
  */
 
-namespace AshleyFae\Migrations\Traits;
+namespace Ashleyfae\MigrationsWP\Traits;
 
 trait Steppable
 {
