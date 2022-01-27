@@ -3,7 +3,7 @@
   "description": "Migration infrastructure.",
   "type": "library",
   "license": "GPL-3.0-or-later",
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
   "require": {
     "php": ">=7.1",
     "ashleyfae/wp-application": "*"

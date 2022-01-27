@@ -9,9 +9,9 @@
 
 namespace AshleyFae\Migrations\ServiceProviders;
 
-use AshleyFae\App\App;
-use AshleyFae\App\Helpers\Hooks;
-use AshleyFae\App\ServiceProviders\ServiceProvider;
+use AshleyFae\AppWP\App;
+use AshleyFae\AppWP\Helpers\Hooks;
+use AshleyFae\AppWP\ServiceProviders\ServiceProvider;
 use AshleyFae\Migrations\Commands\Command;
 use AshleyFae\Migrations\Commands\Migrate;
 use AshleyFae\Migrations\Commands\MigrateRollback;

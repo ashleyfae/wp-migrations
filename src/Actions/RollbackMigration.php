@@ -9,7 +9,7 @@
 
 namespace AshleyFae\Migrations\Actions;
 
-use AshleyFae\App\App;
+use AshleyFae\AppWP\App;
 use AshleyFae\Migrations\Contracts\Migration;
 use AshleyFae\Migrations\MigrationRepository;
 use AshleyFae\Migrations\Exceptions\ModelNotFoundException;
