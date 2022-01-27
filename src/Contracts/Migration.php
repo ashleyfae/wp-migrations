@@ -22,9 +22,9 @@ interface Migration
     /**
      * Group this migration belongs to.
      *
-     * @return string
+     * @return MigrationGroup
      */
-    public static function groupId(): string;
+    public static function group(): MigrationGroup;
 
     /**
      * Returns a display-friendly title for this migragion.

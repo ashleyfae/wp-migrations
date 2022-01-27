@@ -11,6 +11,7 @@ namespace Ashleyfae\MigrationsWP\Migrations;
 
 use Ashleyfae\MigrationsWP\Contracts\Migration;
 use Ashleyfae\MigrationsWP\Exceptions\DatabaseMigrationException;
+use Ashleyfae\MigrationsWP\MigrationGroup;
 use Ashleyfae\MigrationsWP\MigrationRepository;
 use Ashleyfae\MigrationsWP\Traits\CreatesTable;
 
@@ -23,9 +24,9 @@ class CreateMigrationsTable implements Migration
         return 'create_migrations_table';
     }
 
-    public static function groupId(): string
+    public static function group(): \Ashleyfae\MigrationsWP\Contracts\MigrationGroup
     {
-        return 'af_migrations';
+        return new MigrationGroup();
     }
 
     public static function title(): string

@@ -71,7 +71,7 @@ class Migration
     {
         return new self([
             'id'       => $migration::id(),
-            'group_id' => $migration::groupId(),
+            'group_id' => $migration::group()->getSlug(),
         ]);
     }
 
