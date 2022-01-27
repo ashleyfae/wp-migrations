@@ -9,12 +9,18 @@
 
 namespace AshleyFae\Migrations;
 
+use Ashleyfae\AppWP\App;
 use AshleyFae\Migrations\Contracts\Migration;
 use AshleyFae\Migrations\Helpers\Registry;
 
 class MigrationRegistry extends Registry
 {
 
+    /**
+     * @param  string|null  $groupId
+     *
+     * @return Migration[]
+     */
     public function getMigrations(string $groupId = null): array
     {
         $sortedMigrations = [];
@@ -23,10 +29,10 @@ class MigrationRegistry extends Registry
                 continue;
             }
 
-            /** @var Migration $migrationClass */
-            $migrationClass = $item['class'];
+            /** @var Migration $migration */
+            $migration = App::getInstance()->make($item['class']);
 
-            $sortedMigrations[$migrationClass::timestamp().'_'.$migrationClass::id()] = $migrationClass;
+            $sortedMigrations[$migration::timestamp().'_'.$migration::id()] = $migration;
         }
 
         ksort($sortedMigrations);
@@ -55,6 +61,20 @@ class MigrationRegistry extends Registry
             'group' => $groupId,
             'class' => $migrationClass,
         ]);
+    }
+
+    public function getMigration(string $migrationId): Migration
+    {
+        $className = $this->offsetGet($migrationId);
+
+        if (! $className) {
+            throw new \InvalidArgumentException(sprintf(
+                'Class %s does not exist.',
+                $className
+            ));
+        }
+
+        return App::getInstance()->make($className);
     }
 
 }

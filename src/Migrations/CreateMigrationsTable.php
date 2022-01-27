@@ -47,11 +47,12 @@ class CreateMigrationsTable implements Migration
         id varchar(180) NOT NULL,
         group_id varchar(180) DEFAULT NULL,
         status varchar(16) NOT NULL DEFAULT 'pending',
+        total_steps bigint(20) unsigned DEFAULT NULL,
+        next_step bigint(20) unsigned NOT NULL DEFAULT 1,
         error text DEFAULT NULL,
         last_run datetime NOT NULL,
         PRIMARY KEY (id),
-        INDEX status (status),
-        INDEX group_id (group_id)
+        INDEX group_status (group_id, status)
         ";
 
         $this->createTable(MigrationRepository::tableName(), $sql);

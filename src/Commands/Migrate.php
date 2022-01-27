@@ -12,9 +12,24 @@ namespace AshleyFae\Migrations\Commands;
 use AshleyFae\Migrations\Actions\RunMigration;
 use AshleyFae\Migrations\Contracts\Migration;
 use AshleyFae\Migrations\Exceptions\ModelNotFoundException;
+use AshleyFae\Migrations\MigrationRegistry;
+use AshleyFae\Migrations\MigrationRepository;
 
 class Migrate extends Command
 {
+    /**
+     * @var RunMigration
+     */
+    protected $runner;
+
+    public function __construct(
+        MigrationRegistry $migrationRegistry,
+        MigrationRepository $migrationRepository,
+        RunMigration $runner
+    ) {
+        parent::__construct($migrationRegistry, $migrationRepository);
+        $this->runner = $runner;
+    }
 
     public static function command(): string
     {
@@ -38,11 +53,7 @@ class Migrate extends Command
         }
 
         try {
-            /** @var Migration $migration */
-            $className = $this->migrationRegistry->offsetGet($migrationId);
-            $migration = new $className;
-            $runner    = new RunMigration($migration);
-            $runner->execute();
+            $this->runner->execute($this->migrationRegistry->getMigration($migrationId));
 
             \WP_CLI::line('Migration successful.');
         } catch (\Exception $e) {
@@ -59,15 +70,14 @@ class Migrate extends Command
             return;
         }
 
-        foreach ($this->migrationRegistry->getMigrations() as $migrationClass) {
-            $migrationId = $migrationClass::id();
-            if (in_array($migrationId, $completedMigrations, true)) {
+        foreach ($this->migrationRegistry->getMigrations() as $migration) {
+            if (in_array($migration::id(), $completedMigrations, true)) {
                 continue;
             }
 
-            \WP_CLI::line(sprintf('Migrating: %s', $migrationId));
+            \WP_CLI::line(sprintf('Migrating: %s', $migration::id()));
 
-            $this->runMigration($migrationId, false);
+            $this->runMigration($migration::id(), false);
         }
     }
 

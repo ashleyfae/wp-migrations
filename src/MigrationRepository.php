@@ -63,14 +63,25 @@ class MigrationRepository
         }
     }
 
+    /**
+     * Inserts or updates a migration.
+     *
+     * @since 1.0
+     *
+     * @param  Migration  $migration
+     *
+     * @return void
+     */
     public function save(Migration $migration): void
     {
         $query = "
-        INSERT INTO {$this->tableName} (id, group_id, status, error, last_run)
-        values(%s, %s, %s, %s, NOW())
+        INSERT INTO {$this->tableName} (id, group_id, status, total_steps, next_step, error, last_run)
+        values(%s, %s, %s, %s, %s, %s, NOW())
         ON DUPLICATE KEY UPDATE
         group_id = %s,
         status = %s,
+        total_steps = %s,
+        next_step = %s,                 
         error = %s,
         last_run = NOW()
         ";
@@ -81,6 +92,8 @@ class MigrationRepository
                 $migration->id,
                 $migration->group_id,
                 $migration->status,
+                $migration->total_steps,
+                $migration->next_step,
                 $migration->error,
                 $migration->group_id,
                 $migration->status,

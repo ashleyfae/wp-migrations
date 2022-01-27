@@ -30,13 +30,20 @@ class MigrationRunner
      */
     private $completedMigrations;
 
+    /**
+     * @var RunMigration
+     */
+    private $runMigration;
+
     public function __construct(
         MigrationRepository $migrationRepository,
-        MigrationRegistry $migrationRegistry
+        MigrationRegistry $migrationRegistry,
+        RunMigration $runMigration
     ) {
         $this->migrationRepository = $migrationRepository;
         $this->migrationRegistry   = $migrationRegistry;
         $this->completedMigrations = $this->migrationRepository->getCompletedMigrationIds();
+        $this->runMigration        = $runMigration;
     }
 
     public function run(): void
@@ -45,19 +52,13 @@ class MigrationRunner
             return;
         }
 
-        foreach ($this->migrationRegistry->getMigrations() as $migrationClass) {
-            $migrationId = $migrationClass::id();
-
-            if (in_array($migrationId, $this->completedMigrations, true)) {
+        foreach ($this->migrationRegistry->getMigrations() as $migration) {
+            if (in_array($migration::id(), $this->completedMigrations, true)) {
                 continue;
             }
 
-            /** @var Migration $migration */
-            $migration = new $migrationClass;
-            $runner    = new RunMigration($migration);
-
             try {
-                $runner->execute();
+                $this->runMigration->execute($migration);
             } catch (\Exception $e) {
                 break;
             }

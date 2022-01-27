@@ -3,7 +3,7 @@
  * MigrateRollback.php
  *
  * @package   wp-migrations
- * @copyright Copyright (c) 2021, Ashley Gibson
+ * @copyright Copyright (c) 2022, Ashley Gibson
  * @license   GPL2+
  */
 
@@ -12,9 +12,25 @@ namespace AshleyFae\Migrations\Commands;
 use AshleyFae\Migrations\Actions\RollbackMigration;
 use AshleyFae\Migrations\Contracts\Migration;
 use AshleyFae\Migrations\Exceptions\ModelNotFoundException;
+use AshleyFae\Migrations\MigrationRegistry;
+use AshleyFae\Migrations\MigrationRepository;
 
 class MigrateRollback extends Command
 {
+    /**
+     * @var RollbackMigration
+     */
+    protected $rollbackRunner;
+
+    public function __construct(
+        MigrationRegistry $migrationRegistry,
+        MigrationRepository $migrationRepository,
+        RollbackMigration $rollbackMigration
+    ) {
+        parent::__construct($migrationRegistry, $migrationRepository);
+
+        $this->rollbackRunner = $rollbackMigration;
+    }
 
     public static function command(): string
     {
@@ -36,11 +52,9 @@ class MigrateRollback extends Command
         }
 
         try {
-            /** @var Migration $migration */
-            $className = $this->migrationRegistry->offsetGet($migrationId);
-            $migration = new $className;
-            $runner = new RollbackMigration($migration);
-            $runner->execute();
+            $this->rollbackRunner->execute(
+                $this->migrationRegistry->getMigration($migrationId)
+            );
 
             \WP_CLI::success('Rollback successful.');
         } catch (\Exception $e) {

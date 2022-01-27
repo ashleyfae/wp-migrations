@@ -3,7 +3,7 @@
  * RunMigration.php
  *
  * @package   wp-migrations
- * @copyright Copyright (c) 2021, Ashley Gibson
+ * @copyright Copyright (c) 2022, Ashley Gibson
  * @license   GPL2+
  */
 
@@ -27,17 +27,18 @@ class RunMigration
      */
     protected $migrationRepository;
 
-    public function __construct(Migration $migration)
+    public function __construct(MigrationRepository $migrationRepository)
     {
-        $this->migration           = $migration;
-        $this->migrationRepository = App::getInstance()->make(MigrationRepository::class);
+        $this->migrationRepository = $migrationRepository;
     }
 
     /**
      * @throws \AshleyFae\Migrations\Exceptions\ModelNotFoundException|\Exception
      */
-    public function execute(): void
+    public function execute(Migration $migration): void
     {
+        $this->migration = $migration;
+
         global $wpdb;
 
         $migrationModel = \AshleyFae\Migrations\Models\Migration::fromMigrationClass($this->migration);

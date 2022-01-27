@@ -34,6 +34,16 @@ class Migration
     public $status = self::STATUS_PENDING;
 
     /**
+     * @var int|null
+     */
+    public $total_steps = null;
+
+    /**
+     * @var int
+     */
+    public $next_step = 1;
+
+    /**
      * @var string|null
      */
     public $error = null;
